@@ -1,21 +1,18 @@
 #!/usr/bin/env python3
-"""Contains method that safely gets value from dictionary."""
-from typing import Mapping, Any, Union, TypeVar, Optional
+""" a python module to loop 10 times """
+import random
+import asyncio
+from typing import Generator
 
-T = TypeVar('T')
 
-
-def safely_get_value(dct: Mapping, key: Any,
-                     default: Optional[T] = None) -> Union[Any, T]:
-    """Safely gets value from dictionary.
-    Args:
-        dct (dict): Dictionary to get value from.
-        key (str): Key to get value from.
-        default (any): Default value to return if key is not found.
-    Returns:
-        Value from dictionary.
+async def async_generator() -> Generator[float, None, None]:
     """
-    if key in dct:
-        return dct[key]
-    else:
-        return default
+    async_generator - function to loop 10 times
+    Arguments:
+        no arguments
+    Returns:
+        nothing
+    """
+    for i in range(10):
+        await asyncio.sleep(1)
+        yield random.uniform(0, 10)
